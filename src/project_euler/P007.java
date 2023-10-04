@@ -1,34 +1,30 @@
 package project_euler;
 
-import java.util.LinkedList;
-
 public class P007 {
 
 	public static void main(String[] args) {
+		int max = 10001;
 		boolean isPrime = true;
-		LinkedList<Integer> primes = new LinkedList<Integer>();
+		int[] primes = new int[max];
 		int num = 2;
-		primes.add(num);
-		while (num<1000) {
+		int i = 0;
+		primes[0] = 2;
+		while (i<max) {
 			isPrime = true;
-			for (int prime : primes) {
-				if (num%prime == 0) {
+			for (int j=0; primes[j]<=num/primes[j]; j++) {
+				if (num%primes[j] == 0) {
 					isPrime = false;
 					break;
 				}
 			}
 			if (isPrime) {
-				primes.add(num);
+				primes[i] = num;
+				i++;
 				
 			}
 			num++;
 		}
-
-
-
-		for (int prime: primes) {
-			System.out.println(prime);
-		}
+		System.out.println(primes[i-1]);
 
 	}
 
