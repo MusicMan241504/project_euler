@@ -33,7 +33,8 @@ public class P014 {
 
 
 		while (num != 1) {
-			if (num%2 == 0) {
+			// use bitwise and to check if even
+			if ((num & 1) == 0) {
 				num = num/2;
 			} else {
 				num = 3*num + 1;
