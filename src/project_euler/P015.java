@@ -3,9 +3,12 @@ package project_euler;
 public class P015{
 	public static void main(String[] args){
 		// size of grid corners is x+1,y+1 but as starting at 0 the method inputs should be x,y
-		for (int i = 1; i < 13; i++) {
-			System.out.println(routes(0,0,i));
+		for (int i = 1; i <= 21; i++) {
+//			System.out.println(routes(0,0,i));
+//			System.out.println(binomialCoefficient(2*i, i));
+
 		}
+		System.out.println(binomialCoefficient(2*20, 20));
 
 
 	}
@@ -22,5 +25,14 @@ public class P015{
 			count += routes(x, y+1, max);
 		}
 		return count;
+	}
+	
+	public static long binomialCoefficient(int n, int k) {
+		long c = 1;
+		k = Math.min(k, n-k); // take advantage of symmetry
+		for (int i = 0; i < k; i++) {
+			c = c * (n-i) / (i+1); // multiplication must be done first to avoid int div error
+		}
+		return c;
 	}
 }
