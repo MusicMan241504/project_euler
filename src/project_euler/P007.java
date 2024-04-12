@@ -3,7 +3,7 @@ package project_euler;
 public class P007 {
 
 	public static void main(String[] args) {
-		int max = 10001;
+		int max = 1000000;
 		boolean isPrime = true;
 		int[] primes = new int[max];
 		int num = 2;
